@@ -1,7 +1,7 @@
 <template>
 <div>
     <h2>Info: </h2>
-    <counter-info :counter="counter"></counter-info>
+    <counter-info></counter-info>
 </div>
 </template>
 
@@ -9,7 +9,6 @@
 import CounterInfo from './CounterInfo'
 
 export default {
-  props: ['counter'],
   components:{
       CounterInfo
   }

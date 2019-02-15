@@ -1,11 +1,11 @@
 <template>
 <div>
-  Counter: {{couner}}
+  Counter: {{counter}}
 </div>
 </template>
 
 <script>
 export default {
-  props: [counter]
+  props: ['counter']
 }
 </script>

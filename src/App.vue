@@ -16,16 +16,9 @@ export default {
   name: 'app',
   data() {
     return {
-      counter: 0
     }
   },
   methods: {
-    increase(){
-      this.counter++;
-    },
-    decrease(){
-      this.counter--
-    }
   },
   components: {
     Counter, Info

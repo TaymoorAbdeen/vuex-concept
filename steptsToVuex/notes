@@ -49,4 +49,41 @@ new Vue({
 
 ###
 use store instead of [props, event]
+
+in Counter.vue i will change this:
+
+#1
+props:['counter']
+=--->
+computed: {
+    counter() {
+        return this.$store.state.counter;
+    }
+},
+
+#2
+increase() { this.$emit('increase'); },
+=--->
+this.$store.state.counter++;
+
+#3
+decrease() { this.$emit('decrease'); }
+=--->
+this.$store.state.counter--;
+
+###
+
+also in CounterInfo.vue i will change this:
+
+props: ['counter']
+=--->
+computed: {
+    counter() {
+        return this.$store.state.counter;
+    }
+},
+
 ----------------------------------
+
+
+

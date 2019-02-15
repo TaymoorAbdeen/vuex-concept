@@ -1,0 +1,40 @@
+095 | Vuex
+https://vuex.vuejs.org/
+is library to use of state management pattren
+
+vuex is one storage, all components can dealing with storage 
+
+It is like a store and all components can handle it
+
+in traditional:
+i have component
+App,
+CounterInfo: it's contains props 'conter' and show it's vaue,
+----------------------------------
+096 | title
+
+----------------------------------
+097 | title
+
+----------------------------------
+098 | title
+
+----------------------------------
+099 | title
+
+----------------------------------
+100 | title
+
+----------------------------------
+101 | title
+
+----------------------------------
+102 | title
+
+----------------------------------
+103 | title
+
+----------------------------------
+104 | title
+
+

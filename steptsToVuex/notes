@@ -48,4 +48,5 @@ new Vue({
 }).$mount('#app')
 
 ###
+use store instead of [props, event]
 ----------------------------------

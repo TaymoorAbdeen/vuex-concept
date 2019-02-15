@@ -230,3 +230,15 @@ nIncrease() {this.$store.commit('nIncrease', 5);},
 add this button:
 <button @click="nIncrease">N Increase</button>
 
+###
+
+create mapMutations:
+mapMutations same mapGetters.
+
+in counter component in methods:
+increase() {this.$store.commit('increase');},
+decrease() {this.$store.commit('decrease');},
+=--->
+...mapMutations(['increase', 'decrease']),
+
+

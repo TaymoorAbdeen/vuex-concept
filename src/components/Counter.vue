@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   computed: {
@@ -34,10 +34,8 @@ export default {
   },
 
   methods: {
-    increase() {this.$store.commit('increase');},
-    decrease() {this.$store.commit('decrease');},
+      ...mapMutations(['increase', 'decrease']),
     nIncrease() {this.$store.commit('nIncrease', 5);},
-
   }
 }
 </script>

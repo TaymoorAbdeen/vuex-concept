@@ -12,7 +12,7 @@ App,
 CounterInfo: it's contains props 'conter' and show it's vaue,
 Info
 ----------------------------------
-095 | start used Vuex
+096 | start used Vuex
 
 $npm install vuex
 
@@ -111,7 +111,7 @@ also in Info.vue i will change this:
 #2 delete
 props: ['counter'],
 ----------------------------------
-096 | Vuex Getters
+097 | Vuex Getters
 Getters as state, but used with as method,
 
 
@@ -175,5 +175,43 @@ and create map for getters:
 
 and this three dots (...)
 is convert same key and info object is javascrip
+----------------------------------
+
+098  | vuex mutations
+
+change in state from component by methods as:
+methods:{
+    increase() { this.$store.state.counter++; },
+    decrease() { this.$store.state.counter--; },
+}
+this method not true 100%.
+
+For recomended way and true 100% to edit states value,
+is use mutations.
+
+mutations same getters,
+but getters responsible on read,
+while mutations responsible on edit.
+
+create mutations in store.js:
+mutations: {
+    increase(state) {state.counter++;},
+    decrease(state) {state.counter--;}
+}
+
+###
+
+and in counter component dealing with state,
+by using commit:
+
+methods: {
+    increase() {this.$store.state.counter++;},
+    decrease() {this.$store.state.counter--;}
+},
+=--->
+methods: {
+    increase() {this.$store.commit('increase');},
+    decrease() {this.$store.commit('decrease');}
+},
 
 

@@ -24,6 +24,11 @@ const store = new Vuex.Store({
     fourthCounter: (state) => {
       return state.counter * 4;
     }
+  },
+  
+  mutations: {
+    increase(state) {state.counter++;},
+    decrease(state) {state.counter--;}
   }
 })
 

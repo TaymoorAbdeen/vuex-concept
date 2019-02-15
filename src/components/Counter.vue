@@ -31,13 +31,10 @@ export default {
           return this.$store.getters.multiCounter(3);
       }
   },
+
   methods: {
-      increase() {
-          this.$store.state.counter++;
-      },
-      decrease() {
-          this.$store.state.counter--;
-      }
-  },
+    increase() {this.$store.commit('increase');},
+    decrease() {this.$store.commit('decrease');}
+  }
 }
 </script>

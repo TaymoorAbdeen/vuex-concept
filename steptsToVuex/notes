@@ -100,8 +100,14 @@ counter: 0
 increase(){this.counter++;},
 decrease(){this.counter--;}
 
+###
+also in Info.vue i will change this:
 
+#1
+<counter-info :counter="counter"></counter-info>
+=--->
+<counter-info></counter-info>
+
+#2 delete
+props: ['counter'],
 ----------------------------------
-
-
-

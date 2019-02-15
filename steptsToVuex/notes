@@ -83,6 +83,24 @@ computed: {
     }
 },
 
+###
+also in App.vue i will change this:
+
+#1 delete
+<div id="app">
+    <counter :counter="counter"
+    v-on:increase="increase"
+    v-on:decrease="decrease">
+    </counter>
+
+#2 delete
+counter: 0
+
+#3 delete
+increase(){this.counter++;},
+decrease(){this.counter--;}
+
+
 ----------------------------------
 
 

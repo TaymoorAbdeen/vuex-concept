@@ -13,6 +13,9 @@ const store = new Vuex.Store({
   getters: {
     doubledCounter(state) {
       return state.counter *2;
+    },
+    multiCounter: (state) => (yourNumber) => {
+      return state.counter * yourNumber;
     }
   }
 })

@@ -112,3 +112,40 @@ also in Info.vue i will change this:
 props: ['counter'],
 ----------------------------------
 096 | Vuex Getters
+Getters as state, but used with as method,
+
+
+in store.js i will create getters:
+getters: {
+    doubledCounter(state) {
+        return state.counter *2;
+    }
+}
+
+###
+
+use this getters in counter vue.js
+computed: {
+    doubledCounter() {
+        return this.$store.getters.doubledCounter;
+    }
+},
+
+###
+
+passing parametters
+
+#1 in store.js add this method
+multiCounter: (state) => (yourNumber) => {
+    return state.counter * yourNumber;
+}
+
+multiCounter: (state) => (yourNumber) => {
+    return state.counter * yourNumber;
+}
+
+#2 in counter.vue call with number (3)
+multiCounter() {
+    return this.$store.getters.multiCounter(3);
+}
+

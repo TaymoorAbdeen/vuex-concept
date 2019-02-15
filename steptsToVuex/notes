@@ -214,4 +214,19 @@ methods: {
     decrease() {this.$store.commit('decrease');}
 },
 
+###
+
+passing params to mutations:
+
+#in store.js:
+mutations: {
+    nIncrease(state, n) {
+        state.counter += n;
+    },
+}
+
+#in counter component the param is 5:
+nIncrease() {this.$store.commit('nIncrease', 5);},
+add this button:
+<button @click="nIncrease">N Increase</button>
 

@@ -9,6 +9,7 @@
     Counter*3 is {{multiCounter}}<br />
     <button @click="increase">Increase</button>
     <button @click="decrease">Decrease</button>
+    <button @click="nIncrease">N Increase</button>
 </div>
 </template>
 
@@ -34,7 +35,9 @@ export default {
 
   methods: {
     increase() {this.$store.commit('increase');},
-    decrease() {this.$store.commit('decrease');}
+    decrease() {this.$store.commit('decrease');},
+    nIncrease() {this.$store.commit('nIncrease', 5);},
+
   }
 }
 </script>

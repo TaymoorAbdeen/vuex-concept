@@ -149,3 +149,31 @@ multiCounter() {
     return this.$store.getters.multiCounter(3);
 }
 
+###
+
+in counter.vue we see there are a lot of function computed,
+i will create map getters for abbreviation:
+
+in store.js i will create many getters:
+doubledCounter(state) {
+    return state.counter *2;
+},
+ThirdCounter: (state) => {
+    return state.counter * 3;
+},
+fourthCounter: (state) => {
+    return state.counter * 4;
+}
+
+###
+in counter.vue iwill import:
+import { mapGetters } from 'vuex'
+
+and create map for getters:
+...mapGetters([
+"doubledCounter", "ThirdCounter", "fourthCounter",]),
+
+and this three dots (...)
+is convert same key and info object is javascrip
+
+

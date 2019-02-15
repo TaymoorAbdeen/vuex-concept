@@ -11,11 +11,18 @@ const store = new Vuex.Store({
     counter: 0
   },
   getters: {
+    multiCounter: (state) => (yourNumber) => {
+      return state.counter * yourNumber;
+    },
+    // for map
     doubledCounter(state) {
       return state.counter *2;
     },
-    multiCounter: (state) => (yourNumber) => {
-      return state.counter * yourNumber;
+    ThirdCounter: (state) => {
+      return state.counter * 3;
+    },
+    fourthCounter: (state) => {
+      return state.counter * 4;
     }
   }
 })

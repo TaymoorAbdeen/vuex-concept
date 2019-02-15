@@ -111,3 +111,4 @@ also in Info.vue i will change this:
 #2 delete
 props: ['counter'],
 ----------------------------------
+096 | Vuex Getters

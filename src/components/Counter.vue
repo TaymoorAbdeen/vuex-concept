@@ -35,7 +35,10 @@ export default {
 
   methods: {
       ...mapMutations(['increase', 'decrease']),
-    nIncrease() {this.$store.commit('nIncrease', 5);},
+    nIncrease() {this.$store.commit('nIncrease', {
+        num: 5
+    });
+    },
   }
 }
 </script>

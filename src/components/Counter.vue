@@ -10,6 +10,7 @@
     <button @click="increase">Increase</button>
     <button @click="decrease">Decrease</button>
     <button @click="nIncrease">N Increase</button>
+    <button @click="increase_after_one_second">Increase afer 1 second</button>
 </div>
 </template>
 
@@ -37,8 +38,11 @@ export default {
       ...mapMutations(['increase', 'decrease']),
     nIncrease() {this.$store.commit('nIncrease', {
         num: 5
-    });
+});
     },
+    increase_after_one_second(){
+        this.$store.dispatch('increaseAfterOneSecond');
+    }
   }
 }
 </script>

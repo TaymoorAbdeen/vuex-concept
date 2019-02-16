@@ -232,7 +232,6 @@ add this button:
 
 ##
 
-passing parametters as object:
 
 #in counter component the param is 5:
 nIncrease() {this.$store.commit('nIncrease', {
@@ -259,5 +258,57 @@ increase() {this.$store.commit('increase');},
 decrease() {this.$store.commit('decrease');},
 =--->
 ...mapMutations(['increase', 'decrease']),
+----------------------------------
+
+099 | vuex DevTools
+you can use dev tool to see change to vuex values
+----------------------------------
+
+100 | vuex actoions
+actoions same mutations,
+mutations is work to edit state,
+actoions is work to commit to mutations,
+actoions layer id higher than the mutations.
+
+
+action goals:
+actoions can work alot of mutations,
+actoions used to send ajax if success we create mutations,
+it's (sync).
+
+in store.js i will add action:
+actions: {
+    increaseAfterOneSecond(context) {
+      setTimeout(function() {
+        context.commit('increase')
+      }, 1000);
+    },
+}
+
+# if you use commit only from context use {commit} as;
+actions: {
+    increaseAfterOneSecond({commit}) {
+        setTimeout(function() {
+        commit('increase')
+        }, 1000);
+    },
+    
+}
+
+
+in counter component i use action:
+
+#add button:
+<button 
+@click="increase_after_one_second">
+Increase afer 1 second
+</button>
+
+#add methods:
+increase_after_one_second(){
+    // The dispatch continued to actions
+    this.$store.dispatch(increaseAfterOneSecond);
+
+
 
 

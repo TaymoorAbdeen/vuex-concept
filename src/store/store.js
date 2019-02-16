@@ -32,7 +32,21 @@ const store = new Vuex.Store({
     nIncrease(state, payload){
       state.counter += payload.num;
     },
-  }
+  },
+  actions: {
+    // increaseAfterOneSecond({commit}) {
+    //   setTimeout(function() {
+    //     commit('increase')
+    //   }, 1000);
+    // },
+    
+    increaseAfterOneSecond(context) {
+      setTimeout(function() {
+        context.commit('increase')
+      }, 1000);
+    },
+
+  },
 })
 
 // export this store

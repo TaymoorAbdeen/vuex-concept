@@ -232,6 +232,7 @@ add this button:
 
 ##
 
+passing parametters as object:
 
 #in counter component the param is 5:
 nIncrease() {this.$store.commit('nIncrease', {
@@ -262,6 +263,9 @@ decrease() {this.$store.commit('decrease');},
 
 099 | vuex DevTools
 you can use dev tool to see change to vuex values
+----------------------------------
+
+100 | vuex actoions
 ----------------------------------
 
 100 | vuex actoions
@@ -306,9 +310,97 @@ Increase afer 1 second
 
 #add methods:
 increase_after_one_second(){
-    // The dispatch continued to actions
-    this.$store.dispatch(increaseAfterOneSecond);
+// The dispatch continued to actions
+this.$store.dispatch(increaseAfterOneSecond);
+---------------------------------
+
+101 | vuex modules
+
+modules is create you model in store,
+also you model contains state, getters, mutations
+and actionsm
+
+steps:
+
+#1 create module likesMoudle
+const likesMoudle = {
+  state:{
+    liked: false,
+    likes: 10
+  },
+  getters:{
+    likes(state) {
+      return state.likes;
+    },
+    liked(state) {
+      return state.liked;
+    },
+  },
+  mutations:{
+    toggleLike(state){
+      state.liked = ! state.liked;
+    },
+    increaseLike(state){
+      state.likes++;
+    },
+    decreaseLike(state){
+      state.likes--;
+    }
+  },
+  actions:{
+      toggleLike(context){
+      
+      setTimeout(() => {
+        
+        context.commit('toggleLike')
+        if(context.state.liked){
+          context.commit('increaseLike');
+        } else {
+          context.commit('decreaseLike')
+        }
+
+      }, 1000);
+
+    }
+  },
+}
 
 
+#2 inclue this module in store
+modules:{
+    likes: likesMoudle
+}
+
+#3 use this module with Like component:
+<template>
+  <div>
+    <div>Likes: {{likes}}</div>
+    <button v-if="liked" @click="toggleLike">Dislike</button>
+    <button v-if="! liked" @click="toggleLike">Like</button>
+  </div>
+</template>
+<script>
+import { mapGetters } from 'vuex'
+export default {
+    computed: {
+        ...mapGetters(["likes", "liked"]),
+    },
+    methods: {
+        toggleLike(){
+            this.$store.dispatch('toggleLike');
+        }
+    },
+}
+</script>
+
+#4 use this component in App.vue:
+    
+##1 <like></like>
+##2 import Like from './components/Like'
+##3 components: {Like}
+
+###
+
+speread 
 
 

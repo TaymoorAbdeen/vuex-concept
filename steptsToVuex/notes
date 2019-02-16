@@ -401,7 +401,7 @@ export default {
 
 ###
 
-speread this modul:
+speread this module:
 
 #1 create likesMoudle.js in store folder:
 const likesMoudle = {
@@ -455,7 +455,16 @@ export default likesMoudle;
 ##2 modules:{
   likes: likesMoudle
 }
+---------------------------------
 
-#3
+102 | vuex modules localState & rootState
 
+localState is exist in store,
+rootState is exist in module
 
+rootState contains all modules state,
+and from rootState you can accsess to localState.
+
+ if you want to accsess to rootState from module,
+ you can use rootState as:
+ likes(state, getters, rootState)

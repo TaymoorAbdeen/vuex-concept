@@ -266,9 +266,6 @@ you can use dev tool to see change to vuex values
 ----------------------------------
 
 100 | vuex actoions
-----------------------------------
-
-100 | vuex actoions
 actoions same mutations,
 mutations is work to edit state,
 actoions is work to commit to mutations,
@@ -401,7 +398,7 @@ export default {
 
 ###
 
-speread this module:
+separate this module:
 
 #1 create likesMoudle.js in store folder:
 const likesMoudle = {
@@ -468,3 +465,95 @@ and from rootState you can accsess to localState.
  if you want to accsess to rootState from module,
  you can use rootState as:
  likes(state, getters, rootState)
+---------------------------------
+
+103 | vuex modules namespace
+use namespace to solve confiuse,
+when in have total(){} in store,
+and same name function in haved in module,
+the solve of this problem:
+#1 in module use:
+namespaced = true
+this command automaticlly add prefix to getters as
+likes
+=--->
+likesMoudle/likes
+
+#2 in component i will use this store with prefix:
+
+##1 in normal way:
+this.$store.getters.liked
+=--->
+this.$store.getters['likesMoudle/liked']
+
+##2 with map:
+...mapGetters(['likes', 'liked'])
+=--->
+...mapGetters('likesMoudle', ['likes', 'liked'])
+
+##3 with dispatch:
+this.$store.dispatch(''likesMoudle'/toggleLike')
+---------------------------------
+
+104 | vuex app structure
+
+in store floder:
+create modules folder,
+and create actions.js, getters.js, mutations.js.
+
+#1 actions.js:
+const actions {
+  increaseAfterOneSecond(context) {
+    setTimeout(function() {
+      context.commit('increase')
+    }, 1000);
+  },
+},
+export default actions;
+
+#2 getters.js
+const getters = {
+  multiCounter: (state) => (yourNumber) => {
+    return state.counter * yourNumber;
+  },
+  doubledCounter(state) {
+    return state.counter *2;
+  },
+  ThirdCounter: (state) => {
+    return state.counter * 3;
+  },
+  fourthCounter: (state) => {
+    return state.counter * 4;
+  }
+}
+export default actions;
+
+
+#3 mutations.js:
+const mutations = {
+  increase(state) {state.counter++;},
+  decrease(state) {state.counter--;},
+  nIncrease(state, payload){
+    state.counter += payload.num;
+  },
+},
+export default mutations;
+
+
+
+in store.js:
+import Vue from 'vue'
+import Vuex from 'vuex'
+import getters from './getters'
+import actions from './actions'
+import mutations from './mutations'
+
+Vue.use(Vuex);
+const store = new Vuex.Store({
+  state: {counter: 0 },
+  getters: getters,
+  mutations: mutations,
+  actions: actions,
+  modules:{likes: likesMoudle }
+})
+export default store;
